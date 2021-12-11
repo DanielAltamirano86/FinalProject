@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Label layoutX="247.0" layoutY="71.0" text="WEATHER APP" />
+      <Button fx:id="btn" layoutX="260.0" layoutY="200.0" mnemonicParsing="false" onAction="#onfunc" text="Search" />
+      <TextField fx:id="inp" layoutX="217.0" layoutY="141.0" promptText="Enter city name" />
+      <Label fx:id="lbl" layoutX="114.0" layoutY="255.0" text="Temperature" />
+      <Label fx:id="temp" layoutX="380.0" layoutY="255.0" text="Value" />
+   </children>
+</AnchorPane>
