@@ -2,13 +2,97 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller" >
+
+
    <children>
-      <Label layoutX="247.0" layoutY="71.0" text="WEATHER APP" />
-      <Button fx:id="btn" layoutX="260.0" layoutY="200.0" mnemonicParsing="false" onAction="#onfunc" text="Search" />
-      <TextField fx:id="inp" layoutX="217.0" layoutY="141.0" promptText="Enter city name" />
-      <Label fx:id="lbl" layoutX="114.0" layoutY="255.0" text="Temperature" />
-      <Label fx:id="temp" layoutX="380.0" layoutY="255.0" text="Value" />
+      <Label layoutX="201.0" layoutY="60.0" styleClass="title" text="WEATHER APP" textFill="darkgreen">
+         <font>
+            <Font size="30" />
+
+         </font>
+      </Label>
+      <Button fx:id="btn" layoutX="395.0" layoutY="158.0" mnemonicParsing="false" onAction="#onfunc" text="Search" />
+      <TextField fx:id="inp" layoutX="194.0" layoutY="158.0" promptText="Enter city name" />
+<!--      <Label styleClass="variable" fx:id="locLbl" layoutX="114.0" layoutY="255.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="4" />-->
+<!--      <Label fx:id="loc" layoutX="380.0" layoutY="255.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />-->
+<!--      <Label styleClass="variable" fx:id="tempLbl" layoutX="114.0" layoutY="255.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="5" />-->
+<!--      <Label fx:id="temp" layoutX="380.0" layoutY="255.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />-->
+<!--      <Label styleClass="variable" fx:id="descLbl" text="" GridPane.rowIndex="6" />-->
+<!--      <Label fx:id="Desc" text="" GridPane.columnIndex="2" GridPane.rowIndex="6" />-->
+
+<!--      <Label styleClass="variable" fx:id="feelsLbl" text="" GridPane.rowIndex="7" />-->
+<!--      <Label fx:id="FeelsLike" text="" GridPane.columnIndex="2" GridPane.rowIndex="7" />-->
+<!--      <Label styleClass="variable" fx:id="maxLbl" text="" GridPane.rowIndex="8" />-->
+<!--      <Label fx:id="Max" text="" GridPane.columnIndex="2" GridPane.rowIndex="8" />-->
+<!--      <Label styleClass="variable" fx:id="minLbl" text="" GridPane.rowIndex="9" />-->
+<!--      <Label fx:id="Min" text="" GridPane.columnIndex="2" GridPane.rowIndex="9" />-->
+<!--      <Label styleClass="variable" fx:id="speedLbl" text="" GridPane.rowIndex="10" />-->
+<!--      <Label fx:id="Speed" text="" GridPane.columnIndex="2" GridPane.rowIndex="10" />-->
+<!--      <Label styleClass="variable" fx:id="humLbl" text="" GridPane.rowIndex="11" />-->
+<!--      <Label fx:id="Humid" text="" GridPane.columnIndex="2" GridPane.rowIndex="11" />-->
+
+
+
+
+
+
+      <TabPane layoutX="-2.0" layoutY="234.0" prefHeight="254.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" >
+         <tabs>
+            <Tab fx:id="current" text="Current">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="54.0" prefWidth="600.0">
+<!--                     <Label styleClass="title" layoutX="247.0" layoutY="71.0" text="WEATHER APP" textFill="darkgreen" GridPane.columnIndex="1" GridPane.rowIndex="0">-->
+<!--                        <font>-->
+<!--                           <Font size="30" />-->
+
+<!--                        </font>-->
+<!--                     </Label>-->
+<!--                     <Button fx:id="btn" layoutX="260.0" layoutY="200.0" mnemonicParsing="false" onAction="#onfunc" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="2" />-->
+<!--                     <TextField fx:id="inp" layoutX="217.0" layoutY="141.0" promptText="Enter city name" GridPane.columnIndex="1" GridPane.rowIndex="2" />-->
+                     <Label fx:id="locLbl" layoutX="114.0" layoutY="10.0" styleClass="variable" text="" />
+                     <Label fx:id="loc" layoutX="380.0" layoutY="10.0" text="" />
+                     <Label fx:id="tempLbl" layoutX="114.0" layoutY="30.0" styleClass="variable" text="" />
+                     <Label fx:id="temp" layoutX="380.0" layoutY="30.0" text="" />
+                     <Label fx:id="descLbl" layoutX="114.0" layoutY="50.0" styleClass="variable" text="" />
+                     <Label fx:id="Desc" layoutX="380.0" layoutY="50.0" text="" />
+
+                     <Label fx:id="feelsLbl" layoutX="114.0" layoutY="70.0" styleClass="variable" text="" />
+                     <Label fx:id="FeelsLike" layoutX="380.0" layoutY="70.0" text="" />
+                     <Label fx:id="maxLbl" layoutX="114.0" layoutY="90.0" styleClass="variable" text="" />
+                     <Label fx:id="Max" layoutX="380.0" layoutY="90.0" text="" />
+                     <Label fx:id="minLbl" layoutX="114.0" layoutY="110.0" styleClass="variable" text="" />
+                     <Label fx:id="Min" layoutX="380.0" layoutY="110.0" text="" />
+                     <Label fx:id="speedLbl" layoutX="114.0" layoutY="130.0" styleClass="variable" text="" />
+                     <Label fx:id="Speed" layoutX="380.0" layoutY="130.0" text="" />
+                     <Label fx:id="humLbl" layoutX="114.0" layoutY="150.0" styleClass="variable" text="" />
+                     <Label fx:id="Humid" layoutX="380.0" layoutY="150.0" text="" />
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="upcoming" text="Upcoming">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="375.0">
+                     <children>
+                        <Label fx:id="CurrentTemp" layoutX="42.0" layoutY="60.0" text="" />
+                        <Label fx:id="sub_temp0" layoutX="412.0" layoutY="60.0" text="" />
+                        <Label fx:id="OneHourTemp" layoutX="42.0" layoutY="90.0" text="" />
+                        <Label fx:id="sub_temp1" layoutX="412.0" layoutY="90.0" text="" />
+                        <Label fx:id="TwoHourTemp" layoutX="42.0" layoutY="120.0" text="" />
+                        <Label fx:id="sub_temp2" layoutX="412.0" layoutY="120.0" text="" />
+
+
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
    </children>
+
+
+
 </AnchorPane>
+
+

@@ -1,0 +1,20 @@
+.root{
+    -fx-background-color : #D6EAF8;
+
+}
+
+.title{
+    -fx-font-size: 80;
+    -fx-text-fill: DarkBlue;
+    -fx-font-weight: bolder;
+    -fx-font-family: monospace;
+    -fx-font-style: oblique;
+
+
+}
+
+.variable{
+
+
+    -fx-font-size: 20;
+}

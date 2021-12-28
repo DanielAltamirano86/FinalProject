@@ -13,8 +13,28 @@ import java.net.URL;
 public class Controller {
     public Button btn;
     public TextField inp;
-    public Label lbl;
     public Label temp;
+    public Label Max;
+    public Label Min;
+    public Label FeelsLike;
+    public Label Desc;
+    public Label Speed;
+    public Label Humid;
+    public Label tempLbl;
+    public Label descLbl;
+    public Label feelsLbl;
+    public Label maxLbl;
+    public Label minLbl;
+    public Label speedLbl;
+    public Label humLbl;
+    public Label locLbl;
+    public Label loc;
+    public Label sub_temp0;
+    public Label sub_temp1;
+    public Label sub_temp2;
+    public Label CurrentTemp;
+    public Label OneHourTemp;
+    public Label TwoHourTemp;
 
     public void onfunc(ActionEvent actionEvent) {
 
@@ -31,12 +51,108 @@ public class Controller {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             JsonElement jse = new JsonParser().parse(br);
+//            System.out.println(jse.toString());
+
+            if (jse!=null) {
+
+                String locLabel = "Location";
+                locLbl.setText(locLabel);
+
+                String location = jse.getAsJsonObject().get("name").getAsString();
+                loc.setText(location);
+
+                String tempLabel = "Temperature";
+                tempLbl.setText(tempLabel);
+
+                String tmp = jse.getAsJsonObject().get("main").getAsJsonObject().get("temp").getAsString();
+                temp.setText(tmp + " °C");
+
+                String maxLabel = "Max Temperature";
+                maxLbl.setText(maxLabel);
+
+                String max = jse.getAsJsonObject().get("main").getAsJsonObject().get("temp_max").getAsString();
+                Max.setText(max + " °C");
+
+                String minLabel = "Min Temperature";
+                minLbl.setText(minLabel);
+
+                String min = jse.getAsJsonObject().get("main").getAsJsonObject().get("temp_min").getAsString();
+                Min.setText(min + " °C");
+
+                String feelsLabel = "Feels Like";
+                feelsLbl.setText(feelsLabel);
+
+                String feels = jse.getAsJsonObject().get("main").getAsJsonObject().get("feels_like").getAsString();
+                FeelsLike.setText(feels + " °C");
+
+                String descLabel = "Description";
+                descLbl.setText(descLabel);
+
+                String desc = jse.getAsJsonObject().get("weather").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString();
+                Desc.setText(desc);
+
+                String speedLabel = "Wind Speed";
+                speedLbl.setText(speedLabel);
+
+                String speed = jse.getAsJsonObject().get("wind").getAsJsonObject().get("speed").getAsString();
+                Speed.setText(speed + " km/h");
+
+                String humLabel = "Humidity";
+                humLbl.setText(humLabel);
+
+                String humid = jse.getAsJsonObject().get("main").getAsJsonObject().get("humidity").getAsString();
+                Humid.setText(humid + "%");
+
+                String latitude = jse.getAsJsonObject().get("coord").getAsJsonObject().get("lat").getAsString();
+                String longitude = jse.getAsJsonObject().get("coord").getAsJsonObject().get("lon").getAsString();
+
+                try {
+
+                    URL url2 = new URL("https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&units=metric&appid=9a14131d21314caaf8e9208f49b174d4");
+
+                    InputStream is2 = url2.openStream();
+                    BufferedReader br2 = new BufferedReader(new InputStreamReader(is2));
+
+                    JsonElement jse2 = new JsonParser().parse(br2);
+//                    System.out.println(jse2.toString());
+
+                    if (jse2!=null) {
+
+                        String currTemp = "THE CURRENT TEMPERATURE IS:";
+                        CurrentTemp.setText(currTemp);
+
+                        String hour0temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(0).getAsJsonObject().get("temp").getAsString();
+                        sub_temp0.setText(hour0temp + " °C");
+
+    //                    System.out.println("Current temperature is " + hour0temp);
+
+                        String HourOneTemp = "THE TEMPERATURE IN 1 HOUR WILL BE:";
+                        OneHourTemp.setText(HourOneTemp);
+
+                        String hour1temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(1).getAsJsonObject().get("temp").getAsString();
+                        sub_temp1.setText(hour1temp + " °C");
+    //                    System.out.println("Temperature in 1 hour is " + hour1temp);
+
+                        String HourTwoTemp = "THE TEMPERATURE IN 2 HOURS WILL BE:";
+                        TwoHourTemp.setText(HourTwoTemp);
+
+                        String hour2temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(2).getAsJsonObject().get("temp").getAsString();
+                        sub_temp2.setText(hour2temp + " °C");
+    //                    System.out.println("Temperature in 2 hours is " + hour2temp);
+
+                    }
+
+                    is2.close();
+                    br2.close();
+                }
+
+                catch (Exception e)
+                {
+                    System.out.println(e);
+                }
 
 
-            String tmp = jse.getAsJsonObject().get("main").getAsJsonObject().get("temp").getAsString();
-            temp.setText(tmp);
-
-
+            }
 
             is.close();
             br.close();
