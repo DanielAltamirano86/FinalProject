@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Calendar;
 
 public class Controller {
     public Button btn;
@@ -35,6 +36,27 @@ public class Controller {
     public Label CurrentTemp;
     public Label OneHourTemp;
     public Label TwoHourTemp;
+    public Label TempVar;
+    public Label TimeVar;
+    public Label ThreeHourTemp;
+    public Label sub_temp3;
+    public Label FourHourTemp;
+    public Label sub_temp4;
+    public Label FiveHourTemp;
+    public Label sub_temp5;
+    public Label DayVar;
+    public Label TodayTemp;
+    public Label sub_tempToday;
+    public Label TomorrowTemp;
+    public Label sub_tempTomorrow;
+    public Label TwoDayTemp;
+    public Label sub_tempTwoDay;
+    public Label TempsVar;
+    public Label DescVar;
+    public Label sub_descToday;
+    public Label sub_descTomorrow;
+    public Label sub_descTwoday;
+
 
     public void onfunc(ActionEvent actionEvent) {
 
@@ -118,7 +140,17 @@ public class Controller {
 
                     if (jse2!=null) {
 
-                        String currTemp = "THE CURRENT TEMPERATURE IS:";
+                        String TimeHeader = "Time";
+                        TimeVar.setText(TimeHeader);
+
+                        String TempHeader = "Temperature";
+                        TempVar.setText(TempHeader);
+
+                        Calendar now = Calendar.getInstance();
+                        int currTime = now.get(Calendar.HOUR_OF_DAY);
+                        String hour = Integer.toString(currTime);
+
+                        String currTemp = "Now";
                         CurrentTemp.setText(currTemp);
 
                         String hour0temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(0).getAsJsonObject().get("temp").getAsString();
@@ -126,19 +158,101 @@ public class Controller {
 
     //                    System.out.println("Current temperature is " + hour0temp);
 
-                        String HourOneTemp = "THE TEMPERATURE IN 1 HOUR WILL BE:";
-                        OneHourTemp.setText(HourOneTemp);
+                        int i  = 1;
+                        int base24Time = currTime;
+                        if(currTime + i >= 24){
+                            base24Time = currTime - 24;
+                        }
+                        String HourOneTemp = Integer.toString(base24Time + i);
+                        OneHourTemp.setText(HourOneTemp + ":00");
 
                         String hour1temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(1).getAsJsonObject().get("temp").getAsString();
                         sub_temp1.setText(hour1temp + " °C");
     //                    System.out.println("Temperature in 1 hour is " + hour1temp);
 
-                        String HourTwoTemp = "THE TEMPERATURE IN 2 HOURS WILL BE:";
-                        TwoHourTemp.setText(HourTwoTemp);
+                        i  = 2;
+                        if(currTime + i >= 24){
+                            base24Time = currTime - 24;
+                        }
+                        String HourTwoTemp = Integer.toString(base24Time + i);
+                        TwoHourTemp.setText(HourTwoTemp + ":00");
 
                         String hour2temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(2).getAsJsonObject().get("temp").getAsString();
                         sub_temp2.setText(hour2temp + " °C");
     //                    System.out.println("Temperature in 2 hours is " + hour2temp);
+
+
+                        i  = 3;
+                        if(currTime + i >= 24){
+                            base24Time = currTime - 24;
+                        }
+                        String HourThreeTemp = Integer.toString(base24Time + i);;
+                        ThreeHourTemp.setText(HourThreeTemp + ":00");
+
+                        String hour3temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(3).getAsJsonObject().get("temp").getAsString();
+                        sub_temp3.setText(hour3temp + " °C");
+
+                        i  = 4;
+                        if(currTime + i >= 24){
+                            base24Time = currTime - 24;
+                        }
+                        String HourFourTemp = Integer.toString(base24Time + i);;
+                        FourHourTemp.setText(HourFourTemp + ":00");
+
+                        String hour4temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(4).getAsJsonObject().get("temp").getAsString();
+                        sub_temp4.setText(hour4temp + " °C");
+
+                        i  = 5;
+                        if(currTime + i >= 24){
+                            base24Time = currTime - 24;
+                        }
+                        String HourFiveTemp = Integer.toString(base24Time + i);;
+                        FiveHourTemp.setText(HourFiveTemp + ":00");
+
+                        String hour5temp = jse2.getAsJsonObject().get("hourly").getAsJsonArray().get(5).getAsJsonObject().get("temp").getAsString();
+                        sub_temp5.setText(hour5temp + " °C");
+
+                        String DayHeader = "Day";
+                        DayVar.setText(DayHeader);
+
+                        String TempsHeader = "Temperature";
+                        TempsVar.setText(TempsHeader);
+
+                        String todayTemp = "Today";
+                        TodayTemp.setText(todayTemp);
+
+                        String TempToday = jse2.getAsJsonObject().get("daily").getAsJsonArray().get(0).getAsJsonObject().get("temp").getAsJsonObject().get("day").getAsString();
+                        sub_tempToday.setText(TempToday + " °C");
+
+                        String tomorrowTemp = "Tomorrow";
+                        TomorrowTemp.setText(tomorrowTemp);
+
+                        String TempTomorrow = jse2.getAsJsonObject().get("daily").getAsJsonArray().get(1).getAsJsonObject().get("temp").getAsJsonObject().get("day").getAsString();
+                        sub_tempTomorrow.setText(TempTomorrow + " °C");
+
+                        String twoDayTemp = "Day after tomorrow";
+                        TwoDayTemp.setText(twoDayTemp);
+
+                        String TempTwoDay = jse2.getAsJsonObject().get("daily").getAsJsonArray().get(2).getAsJsonObject().get("temp").getAsJsonObject().get("day").getAsString();
+                        sub_tempTwoDay.setText(TempTwoDay + " °C");
+
+
+                        String DescHeader = "Description";
+                        DescVar.setText(DescHeader);
+
+                        String DescToday = jse2.getAsJsonObject().get("daily").getAsJsonArray().get(0).getAsJsonObject().get("weather").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString();
+                        sub_descToday.setText(DescToday);
+
+                        String DescTomorrow = jse2.getAsJsonObject().get("daily").getAsJsonArray().get(1).getAsJsonObject().get("weather").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString();
+                        sub_descTomorrow.setText(DescTomorrow);
+
+                        String DescTwoDay = jse2.getAsJsonObject().get("daily").getAsJsonArray().get(2).getAsJsonObject().get("weather").getAsJsonArray().get(0).getAsJsonObject().get("description").getAsString();
+                        sub_descTwoday.setText(DescTwoDay);
+
+
+
+
+
 
                     }
 

@@ -4,11 +4,12 @@
 }
 
 .title{
-    -fx-font-size: 80;
+    -fx-font-size: 30;
     -fx-text-fill: DarkBlue;
     -fx-font-weight: bolder;
     -fx-font-family: monospace;
     -fx-font-style: oblique;
+
 
 
 }
@@ -17,4 +18,12 @@
 
 
     -fx-font-size: 20;
+     -fx-font-weight: bold;
+}
+
+.value{
+
+    -fx-font-size: 20;
+    -fx-text-fill: DarkBlue;
+    -fx-font-weight: bold;
 }
