@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--Grid pane used as a container-->
+<GridPane alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" stylesheets="style.css"  xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller" hgap="10">
+
+
+   <children>
+<!--            Title used in the GUI-->
+           <Label styleClass="title" text="CHECK THE WEATHER IN YOUR CITY" textFill="darkgreen" GridPane.columnIndex="1">
+               <font>
+                   <Font size="30" />
+
+               </font>
+           </Label>
+<!--            Search button-->
+           <Button fx:id="btn" mnemonicParsing="false" onAction="#onfunc" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+<!--            Textfield to enter city name-->
+           <TextField fx:id="inp" promptText="Enter city name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<!--                 <Label styleClass="variable" fx:id="locLbl" layoutX="114.0" layoutY="255.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="4" />-->
+<!--                 <Label fx:id="loc" layoutX="380.0" layoutY="255.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />-->
+<!--                 <Label styleClass="variable" fx:id="tempLbl" layoutX="114.0" layoutY="255.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="5" />-->
+<!--                 <Label fx:id="temp" layoutX="380.0" layoutY="255.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />-->
+<!--                 <Label styleClass="variable" fx:id="descLbl" text="" GridPane.rowIndex="6" />-->
+<!--                 <Label fx:id="Desc" text="" GridPane.columnIndex="2" GridPane.rowIndex="6" />-->
+
+<!--                 <Label styleClass="variable" fx:id="feelsLbl" text="" GridPane.rowIndex="7" />-->
+<!--                 <Label fx:id="FeelsLike" text="" GridPane.columnIndex="2" GridPane.rowIndex="7" />-->
+<!--                 <Label styleClass="variable" fx:id="maxLbl" text="" GridPane.rowIndex="8" />-->
+<!--                 <Label fx:id="Max" text="" GridPane.columnIndex="2" GridPane.rowIndex="8" />-->
+<!--                 <Label styleClass="variable" fx:id="minLbl" text="" GridPane.rowIndex="9" />-->
+<!--                 <Label fx:id="Min" text="" GridPane.columnIndex="2" GridPane.rowIndex="9" />-->
+<!--                 <Label styleClass="variable" fx:id="speedLbl" text="" GridPane.rowIndex="10" />-->
+<!--                 <Label fx:id="Speed" text="" GridPane.columnIndex="2" GridPane.rowIndex="10" />-->
+<!--                 <Label styleClass="variable" fx:id="humLbl" text="" GridPane.rowIndex="11" />-->
+<!--                 <Label fx:id="Humid" text="" GridPane.columnIndex="2" GridPane.rowIndex="11" />-->
+
+
+
+
+
+
+<!--            Tab pane to arrange different sections in tabs-->
+           <TabPane layoutX="-2.0" layoutY="234.0" prefHeight="98.0" prefWidth="261.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <tabs>
+<!--                    First tab: current weather conditions-->
+                   <Tab fx:id="current" text="Current">
+                       <content>
+                           <GridPane minHeight="200.0" minWidth="200.0" prefHeight="0.0" prefWidth="491.0"  GridPane.rowIndex="7" vgap="10" hgap="10">
+                               <!--                     <Label styleClass="title" layoutX="247.0" layoutY="71.0" text="WEATHER APP" textFill="darkgreen" GridPane.columnIndex="1" GridPane.rowIndex="0">-->
+                               <!--                        <font>-->
+                               <!--                           <Font size="30" />-->
+
+                               <!--                        </font>-->
+                               <!--                     </Label>-->
+                               <!--                     <Button fx:id="btn" layoutX="260.0" layoutY="200.0" mnemonicParsing="false" onAction="#onfunc" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="2" />-->
+                               <!--                     <TextField fx:id="inp" layoutX="217.0" layoutY="141.0" promptText="Enter city name" GridPane.columnIndex="1" GridPane.rowIndex="2" />-->
+                               <Label fx:id="locLbl" layoutX="114.0" layoutY="10.0" styleClass="variable" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                               <Label styleClass="value" fx:id="loc" layoutX="380.0" layoutY="10.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                               <Label styleClass="variable" fx:id="tempLbl" layoutX="114.0" layoutY="255.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                               <Label styleClass="value" fx:id="temp" layoutX="380.0" layoutY="255.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                               <Label styleClass="variable" fx:id="descLbl" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                               <Label styleClass="value" fx:id="Desc" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                               <Label styleClass="variable" fx:id="feelsLbl" text="" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                               <Label styleClass="value" fx:id="FeelsLike" text="" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                               <Label styleClass="variable" fx:id="maxLbl" text="" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                               <Label styleClass="value" fx:id="Max" text="" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                               <Label styleClass="variable" fx:id="minLbl" text="" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                               <Label styleClass="value" fx:id="Min" text="" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                               <Label styleClass="variable" fx:id="speedLbl" text="" GridPane.columnIndex="1" GridPane.rowIndex="7"  />
+                               <Label styleClass="value" fx:id="Speed" text="" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                               <Label styleClass="variable" fx:id="humLbl" text="" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                               <Label styleClass="value" fx:id="Humid" text="" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+
+<!--                               Column constraints used to adjust width to the output expected-->
+                               <columnConstraints>
+                                   <ColumnConstraints percentWidth="2.0" />
+                                   <ColumnConstraints percentWidth="60.0" />
+                                   <ColumnConstraints percentWidth="38.0" />
+
+
+                               </columnConstraints>
+
+                           </GridPane>
+
+                       </content>
+
+                    </Tab>
+
+
+<!--                    Second tab: hourly weather conditions-->
+                   <Tab fx:id="upcoming" text="Hourly">
+                       <content>
+                           <GridPane minHeight="200.0" minWidth="200.0" prefHeight="0.0" prefWidth="491.0" gridLinesVisible="false" hgap="10" vgap="10">
+
+                               <Label styleClass="variable" fx:id="TimeVar" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                               <Label styleClass="variable" fx:id="TempVar" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+
+                               <Label styleClass="variable" fx:id="CurrentTemp" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                               <Label styleClass="value" fx:id="sub_temp0" layoutX="412.0" layoutY="60.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="2"  />
+                               <Label styleClass="variable" fx:id="OneHourTemp" layoutX="42.0" layoutY="90.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                               <Label styleClass="value" fx:id="sub_temp1" layoutX="412.0" layoutY="90.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                               <Label styleClass="variable" fx:id="TwoHourTemp" layoutX="42.0" layoutY="120.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                               <Label styleClass="value" fx:id="sub_temp2" layoutX="412.0" layoutY="120.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                               <Label styleClass="variable" fx:id="ThreeHourTemp" layoutX="42.0" layoutY="120.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                               <Label styleClass="value" fx:id="sub_temp3" layoutX="412.0" layoutY="120.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                               <Label styleClass="variable" fx:id="FourHourTemp" layoutX="42.0" layoutY="120.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                               <Label styleClass="value" fx:id="sub_temp4" layoutX="412.0" layoutY="120.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+                               <Label styleClass="variable" fx:id="FiveHourTemp" layoutX="42.0" layoutY="120.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                               <Label styleClass="value" fx:id="sub_temp5" layoutX="412.0" layoutY="120.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="7"/>
+
+                               <columnConstraints>
+                                   <ColumnConstraints percentWidth="2.0" />
+                                   <ColumnConstraints percentWidth="60.0" />
+                                   <ColumnConstraints percentWidth="38.0" />
+
+
+
+                               </columnConstraints>
+
+
+                           </GridPane>
+                       </content>
+                   </Tab>
+
+<!--                   Third tab: upcoming days weather conditions-->
+                   <Tab fx:id="upcDays" text="Upcoming Days">
+                       <content>
+                           <GridPane minHeight="200.0" minWidth="200.0" prefHeight="0.0" prefWidth="491.0" gridLinesVisible="false" hgap="10" vgap="10">
+
+                               <Label styleClass="variable" fx:id="DayVar" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                               <Label styleClass="variable" fx:id="TempsVar" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                               <Label styleClass="variable" fx:id="DescVar" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+
+                               <Label styleClass="variable" fx:id="TodayTemp" layoutX="42.0" layoutY="60.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                               <Label styleClass="value" fx:id="sub_tempToday" layoutX="412.0" layoutY="60.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="2"  />
+                               <Label styleClass="value" fx:id="sub_descToday" layoutX="412.0" layoutY="60.0" text="" GridPane.columnIndex="2" GridPane.rowIndex="3"  />
+
+                               <Label styleClass="variable" fx:id="TomorrowTemp" layoutX="42.0" layoutY="90.0" text="" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                               <Label styleClass="value" fx:id="sub_tempTomorrow" layoutX="412.0" layoutY="90.0" text="" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                               <Label styleClass="value" fx:id="sub_descTomorrow" layoutX="412.0" layoutY="60.0" text="" GridPane.columnIndex="3" GridPane.rowIndex="3"  />
+
+                               <Label styleClass="variable" fx:id="TwoDayTemp" layoutX="42.0" layoutY="120.0" text="" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                               <Label styleClass="value" fx:id="sub_tempTwoDay" layoutX="412.0" layoutY="120.0" text="" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+                               <Label styleClass="value" fx:id="sub_descTwoday" layoutX="412.0" layoutY="60.0" text="" GridPane.columnIndex="4" GridPane.rowIndex="3"  />
+
+
+                               <columnConstraints>
+                                   <ColumnConstraints percentWidth="2.0" />
+                                   <ColumnConstraints percentWidth="24.0" />
+                                   <ColumnConstraints percentWidth="20.0" />
+                                   <ColumnConstraints percentWidth="20.0" />
+                                   <ColumnConstraints percentWidth="34.0" />
+
+
+                               </columnConstraints>
+
+
+                           </GridPane>
+                       </content>
+                   </Tab>
+               </tabs>
+           </TabPane>
+
+
+
+
+
+   </children>
+   <columnConstraints>
+      <ColumnConstraints percentWidth="27.0" />
+       <ColumnConstraints percentWidth="46.0" />
+      <ColumnConstraints percentWidth="27.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints percentHeight="20.0" />
+      <RowConstraints percentHeight="20.0" />
+      <RowConstraints percentHeight="10.0" />
+      <RowConstraints percentHeight="50.0" />
+   </rowConstraints>
+
+
+
+
+</GridPane>
